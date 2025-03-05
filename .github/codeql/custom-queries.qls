@@ -1,17 +1,5 @@
-/**
- * @name 一般的な例外のキャッチ
- * @description 一般的な Exception をキャッチすると具体的なエラーハンドリングが難しくなります。
- * @kind problem
- * @problem.severity warning
- * @id py/general-exception-caught
- * @tags error-handling
- *       maintainability
- */
-
-import python
-
-from ExceptStmt except
-where 
-  except.getType().getASubClass*() = Object::builtin("Exception") and
-  not except.getType() = Object::builtin("Exception").getASubClass+()
-select except, "具体的な例外タイプをキャッチする代わりに一般的な Exception をキャッチしています。"
+# カスタムクエリスイート定義
+- import: codeql-suites/python-security-and-quality.qls
+  from: codeql-python
+- queries: .
+  from: .github/codeql/custom-queries/python
