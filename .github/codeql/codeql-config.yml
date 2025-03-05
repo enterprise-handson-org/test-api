@@ -1,0 +1,12 @@
+name: "カスタムCodeQL設定"
+
+queries:
+  - uses: security-and-quality
+  - name: カスタム規約チェック
+    uses: ./.github/codeql/custom-queries.qls
+
+paths:
+  - src
+paths-ignore:
+  - '**/test/**'
+  - '**/tests/**'
